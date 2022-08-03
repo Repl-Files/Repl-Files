@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;500;600;700;800;900&display=swap');
+
+:root {
+  --blue-highest: #74b1cd;
+  
+  --foreground-default: #dfefff;
+  --foreground-dimmer: #ccced0;
+  --foreground-dimmest: #7b8c98;
+
+  --danger-highest: #fc9472;
+  --danger-higher: #e87a56;
+  --danger-default: #db633b;
+  --danger-dimmer: #c44c23;
+  --danger-dimmest: #a3340f;
+
+  --accent-default: #0055a6;
+
+  --background-highest: #67778b;
+  --background-higher: #3f5671;
+  --background-default: #2c3c50;
+  --background-dimmer: #1f364d;
+  --background-root: #031922;
+
+  --font-sec: 'Inter', sans-serif;
+  --font-main: 'IBM plex sans', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  background: var(--background-root);
+  color: var(--foreground-default);
+  font-family: var(--font-main);
+}
+
+@mixin header {
+  font-weight: 600;
+  font-family: var(--font-main);
+  margin-top: 0;
+  padding-top: 0;
+  display: block;
+  margin-bottom: 15px;
+}
+
+h1 { @include header; font-size: 3em; }
+h2 { @include header; font-size: 2.25em; }
+h3 { @include header; font-size: 1.75em; }
+h4 { @include header; font-size: 1.25em; }
+h5 { @include header; font-size: 1em; }
+h6 { @include header; font-size: 0.75em; }
+
+p{
+  font-family: var(--font-main);
+  color: var(--foreground-dimmer);
+  font-weight: 400;
+  margin: 10px 0;
+  font-size: 16px;
+  max-width: 700px;
+}
+
+a{
+  color: var(--blue-highest);
+  text-decoration: none !important;
+}
+
+
+
+.swal2-popup {
+  background: linear-gradient(120deg, var(--background-higher), var(--background-default)) !important;
+  border-radius: 10px !important;
+  color: var(--foreground-default) !important;
+  font-family: var(--font-main) !important;
+  padding-bottom: 0 !important;
+  min-height: 200px;
+
+  & > #swal2-title{
+    text-align: left;
+    padding: 10px 15px 0 15px !important;
+    font-family: var(--font-main) !important;
+    font-size: 1.5em !important;
+    font-weight: 700 !important;
+  }
+
+  &.swal2-toast{
+    min-height: 0;
+    height: auto;
+    width: auto;
+    min-width: 0;
+    max-width: 100000px;
+    max-height: 100000px;
+    padding: 10px !important;
+    & > #swal2-title{
+      text-align: left;
+      padding: 0 !important;
+      font-family: var(--font-main) !important;
+      font-size: 1.25em !important;
+      font-weight: 600 !important;
+      margin: 0 !important;
+      margin-top: 5px !important;
+      margin-left: 10px !important;
+    }
+  }
+  
+  & > .swal2-html-container{
+    font-size: 14px;
+    color: var(--foreground-dimmer) !important;
+    text-align: left;
+    margin: 10px 15px;
+    line-height: 1.5;
+  }
+  & > .swal2-actions{
+    align-self: stretch !important;
+    justify-content: flex-start !important;
+    align-items: flex-end !important;
+    margin: 10px 15px;
+    flex-direction: row-reverse;
+    & > button {
+      padding: 7.5px 15px !important;
+      border-radius: 5px !important;
+      border: none !important;
+      color: var(--foreground-default) !important;
+      font-family: var(--font-text) !important;
+      transition: 0.25s !important;
+      font-size: 15px !important;
+      font-weight: semibold !important;
+      position: relative !important;
+      overflow: hidden !important;
+      align-self: flex-end !important;
+      justify-self: flex-end !important;
+
+      &.swal2-confirm{ background: var(--accent-higher) !important; }
+      &.swal2-cancel{ background: var(--background-highest) !important; }
+      &.swal2-deny{ background: var(--danger-higher) !important; }
+
+      &:hover{
+        cursor: pointer !important;
+        &.swal2-confirm{ background: var(--accent-default) !important;}
+        &.swal2-cancel{ background: var(--danger-default) !important; }
+        &.swal2-deny{ background: var(--background-higher) !important; }
+      }
+    }
+  }
+}
+
+.swal2-textarea, .swal2-input{
+  transition: 0.25s !important;
+  padding: 5px !important;
+  color: var(--foreground-default) !important;
+  font-family: var(--font-main) !important;
+  background: var(--background-default) !important;
+  font-size: 14px !important;
+  border: solid transparent 1px !important;
+  border-radius: 5px !important;
+  resize: none !important;
+  margin: 10px 15px !important;
+  &::placeholder{
+    color: var(--foreground-dimmest) !important;
+  }
+  &:focus{
+    border: solid var(--accent-dimmer) 1px !important;
+    outline: none !important;
+  }
+  &:disabled{
+    opacity: 0.5 !important;
+    cursor: not-allowed !important;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--background-default); 
+  border-radius: 20px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--background-higher); 
+}
+
+hr{
+  border: none;
+  border-bottom: solid 2px var(--background-highest);
+  margin: 10px 0;
+}

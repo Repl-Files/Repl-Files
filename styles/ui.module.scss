@@ -1,0 +1,179 @@
+.button{
+  padding: 7.5px 15px;
+  border-radius: 5px;
+  border: none;
+  color: var(--foreground-default);
+  font-family: var(--font-text);
+  transition: 0.25s;
+  font-size: 15px;
+  font-weight: semibold;
+  position: relative;
+  overflow: hidden;
+
+
+
+    &.buttonStylePrimary{ background: var(--accent-default ); border: solid 1px transparent}
+  &.buttonStyleSecondary{ background: var(--background-highest) }
+  &.buttonStyleDanger{ background: var(--danger-higher) }
+  
+  &:hover{
+    cursor: pointer;
+      &.buttonStylePrimary {border: solid 1px #57ABFF }
+    &.buttonStyleDanger{ background: var(--danger-default) }
+    &.buttonStyleSecondary{ background: var(--background-higher) }
+  }
+
+}
+
+.input{
+  transition: 0.25s;
+  display: block;
+  padding: 5px;
+  color: var(--foreground-default);
+  font-family: var(--font-main);
+  background: var(--background-dimmer);
+  font-size: 14px;
+  border: solid transparent 1px;
+  border-radius: 5px;
+  resize: none;
+  &::placeholder{
+    color: var(--foreground-dimmest);
+  }
+  &:focus{
+    border: solid var(--accent-dimmer) 1px;
+    outline: none;
+  }
+  &:disabled{
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.boxContainer{
+  padding: 10px;
+  border-radius: 10px;
+  background: var(--background-default);
+  display: block;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.flexRow{
+  display: flex;
+}
+
+.flexCol{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.dropShadowLight{
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.formLabel{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--foreground-default);
+}
+
+.disabledField{
+  position: relative;
+  cursor: not-allowed;
+  color: var(--foreground-dimmer);
+  & > svg{
+    transform: translate(0, 1px);
+  }
+  &:hover:after{
+    position: absolute;
+    background: var(--background-highest);
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--foreground-default);
+    content: "Follow @IroncladDev on replit to unlock this feature";
+    z-index: 5;
+    font-weight: 400;
+    font-size: 12px;
+    top: 0;
+    height: auto;
+    width: 150px;
+    transform: translatex(10px);
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  }
+}
+
+.disabledElement {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+}
+
+.colorDot{
+  position: relative;
+  display: inline-block;
+  max-width: 15px;
+  max-height: 15px;
+  margin-right: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+/* Hide default HTML checkbox */
+.switch > .switchInput {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-higher);
+  border-radius: 20px;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 0px;
+  bottom: 0px;
+  border-radius: 50%;
+  background-color: var(--foreground-default);
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+
+.switchInput:checked + .slider {
+  background-color: var(--accent-higher);
+}
+
+.switchInput:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.alignItemsCenter{
+  align-items: center;
+  & > * { margin: 0 }
+}
+.gap10px { gap: 10px }
+.marginTop10px { margin-top: 10px }

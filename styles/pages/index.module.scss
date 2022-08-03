@@ -1,0 +1,154 @@
+.section{
+  position: relative;
+  min-height: 100vh;
+  display: block;
+  width: 100%;
+}
+
+.mainHeader{
+  max-width: 1000px;
+  width: 100vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  transform: translate(-50%, -50%);
+  & > div{
+    flex: 1;
+  }
+}
+
+.headerFlex{
+  position: relative;
+  & > div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);    
+  }
+}
+
+.illustration1{
+  & > img{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.tContainer{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 10px;
+  max-width: 1000px;
+  width: 100vw;
+  padding: 20px;
+  margin: 0 auto;
+  & > div{
+    background: var(--background-default);
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    gap: 10px;
+    & > img{
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+    }
+    & > div > h4{
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.centerSec{
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+}
+
+.bork > h1{
+  margin: 20vh 0;
+  font-size: 4.5em;
+}
+
+@media(max-width: 700px){
+  .mainHeader{
+    display: block !important;
+    position: relative;
+    top:0;
+    left:0;
+    transform: translate(0, 0);
+    & > div{
+      flex: none;
+    }
+  }
+  .headerFlex{
+    & > div{
+      position: relative;
+      top:0;
+      left:50%;
+      transform: translate(-50%, 0);
+      padding: 50px 0;
+    }
+  }
+  .illustration1{
+  & > img{
+    position: relative;
+      top:0;
+      left:50%;
+      transform: translate(-50%, 0);
+  }
+}
+
+  .bork > h1{
+  margin: 20vh 0;
+  font-size: 1.75em;
+}
+}
+
+
+
+div.slide-right {
+  width:100%;
+  overflow:hidden;
+}
+div.slide-right p {
+  animation: 10s slide-right;
+}
+
+@keyframes slide-right {
+  from {
+    margin-left: -100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+
+div.slide-left {
+  width:100%;
+  overflow:hidden;
+}
+div.slide-left p {
+  animation: slide-left 10s;
+}
+
+@keyframes slide-left {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
