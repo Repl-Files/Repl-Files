@@ -15,7 +15,8 @@ const UserSchema = new mongoose.Schema({
 
   color: { type: String, index: true, default: "#ffffff" },
   roles: { type: Array, index: true, default: [] },
-  userRoles: { type: [mongoose.Schema.Types.ObjectId], index: true, default: [], ref: "Role" }
+  userRoles: { type: [mongoose.Schema.Types.ObjectId], index: true, default: [], ref: "Role" },
+  files: {type: Array, index: true, default: [] }
 })
 
 
