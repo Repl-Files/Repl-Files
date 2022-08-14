@@ -37,7 +37,9 @@ app.post(async (req, res) => {
           userId: id,
           image: user.image,
           cool: false,
-          userRoles: parsedRoles
+          userRoles: parsedRoles,
+          spaceUsed: 0,
+          count: 0
         })
         console.log("NEW USER", newUser)
         await newUser.save();

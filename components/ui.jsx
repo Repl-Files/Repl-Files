@@ -8,6 +8,7 @@ export const Button = (props) => {
     
   return (<button
     onClick={props.onClick}
+    type={props.btnType || undefined}
     className={`
       ${ui.button}
       ${props.theme ? ui["buttonStyle" + props.theme] : ui.buttonStylePrimary}
@@ -63,4 +64,51 @@ export const ToggleSwitch = ({ classes, checked, onChange }) => {
     <input className={ui.switchInput} type="checkbox" checked={checked} onChange={onChange} />
     <span className={ui.slider}></span>
   </label>)
+}
+
+export const UserModal = ({user, setUserModal}) => {
+    const [userData, setUserData] = useState(false);
+
+  useEffect(() => {
+    if(user) (async () => {
+      let dt = await Post("/api/gql", {
+        query: `query userByUsername($username: String!) {
+          userByUsername(username: $username){
+            bio followerCount followCount
+          }        
+        }`,
+        variables: { username: user.username }
+      });
+      setUserData(dt?.data?.userByUsername);
+    })();
+  }, [user]);
+
+  if (user) return (<div className={styles.userModalBackdrop} onClick={() => setUserModal(false)}>
+    <div className={styles.userModal}>
+      <FlexRow classes={[styles.flexUserData]}>
+        <img className={styles.userImg} src={user.image} alt="pfp"/>
+        <div className={styles.flexRightInfo}>
+          <h4 style={{ margin: 0 }}>{user.displayName}</h4>
+          <a target="_blank" rel="noreferrer" href={`https://replit.com/@` + user.username}>@{user.username}</a>
+        </div>
+      </FlexRow>
+      <div>
+        <h6 style={{margin:0, marginTop: 5}}>{userData?.followerCount||0} followers | {userData?.followCount||0} following</h6>
+     </div>
+      <hr />
+      <div className={styles.roleBioInfo}>
+        <h5 style={{ marginBottom: 0 }}>About {user.username}</h5>
+        {userData && <p className={styles.userBio}>{(userData?.bio) || "User has no bio"}</p>}
+        <h5 style={{ marginBottom: 5 }}>Roles</h5>
+        <div className={styles.roleContainer}>
+          {user.userRoles.sort((a, b) => b.perm - a.perm).map(r => <div className={styles.inlineRole} desc={r.desc} key={Math.random()} style={{ background: r.color }}>{r.name}</div>)}
+        </div>
+      </div>
+      <FlexRow>
+        <FlexGrow/>
+        <Button theme="Primary" onClick={() => setUserModal(false)}>Close</Button>
+      </FlexRow>
+    </div>
+  </div>);
+  return null;
 }

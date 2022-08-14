@@ -1,20 +1,19 @@
 import Link from 'next/link'
-import {useRouter} from 'next/router'
+import { useRouter } from 'next/router'
 import { useForm } from "react-hook-form";
-import { ChevronDownIcon, HomeIcon, SearchIcon } from '@heroicons/react/solid'
-import { CloudUploadIcon } from '@heroicons/react/outline'
+import { HomeIcon } from '@heroicons/react/solid'
 import Avatar from './Avatar'
-import {Button} from './ui'
+import { Button } from './ui'
 
 
 export default function Header({ currentUser }) {
     const router = useRouter()
-    
+
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => router.push(`https://replit.com/search?query=${data.query}`);
-    
+
     return (
-        <header className=' h-[60px] sticky top-0 z-50 flex bg-[#1D2332] px-4 py-2 shadow-sm  items-center'>
+        <header className=' h-[60px] sticky top-0 z-50 flex bg-[#1D2332] px-4 py-2 shadow-sm  items-center mb-5'>
             <div className="h-10 w-10 relative flex-shrink-0 cursor-pointer">
                 <Link href="/">
                     <a className="">
@@ -24,8 +23,10 @@ export default function Header({ currentUser }) {
             </div>
 
             <div className="mx-7 space-x-2 flex items-center xl:min-w-[300px]">
-                <HomeIcon onClick={() => router.push('/')} className="h-5 w-5" />
-                <p className="ml-2 hidden lg:inline">Home</p>
+                <div onClick={() => router.push('/dashboard')} className='cursor-pointer flex items-center space-x-2'>
+                    <HomeIcon className="h-5 w-5" />
+                    <p className="ml-2 hidden lg:inline">Home</p>
+                </div>
             </div>
 
             <div className='hidden sm:inline flex items-center flex-1 rounded-md bg-[#2B3245] p-[4px] pl-[8px] max-w-[60vw] '>
@@ -40,16 +41,18 @@ export default function Header({ currentUser }) {
                     <button hidden type="submit" />
                 </form>
             </div>
-            
-                
+
+
 
             <div className="ml-auto flex-shrink-0 items-center justify-between flex relative cursor-pointer">
 
-                    <Button classes='mx-2 text-xl hidden sm:inline'>Upload</Button>
-                    <Button classes='mx-2 text-xl sm:hidden inline'>+</Button>
-                <Link  href={`/@${currentUser.username}`}>
+                <Button onClick={() => router.push('/upload')} classes='mx-2 text-xl hidden sm:inline'>Upload</Button>
+                <Button onClick={() => router.push('/upload')} classes='mx-2 text-xl sm:hidden inline'>+</Button>
+
+                <Button onClick={() => router.push('/feedback')} classes='mx-2 text-xl hidden md:inline'>Feedback</Button>
+                <Link href={`/${currentUser.username}`}>
                     <a className='mr-0 flex'>
-                <p className="hidden sm:inline ml-2 mr-4 truncate">{currentUser.displayName} | @{currentUser.username}</p>
+                        <p className="hidden sm:inline ml-2 mr-4 truncate break-words">{currentUser.displayName} | @{currentUser.username}</p>
                         <Avatar source={currentUser.image} priority background='1D2332' />
                     </a>
                 </Link>

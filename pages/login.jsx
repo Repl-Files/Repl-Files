@@ -3,8 +3,6 @@ import { Post } from '../scripts/fetch'
 import { Button, FlexCol, FlexRow, FlexGrow, Link } from '../components/ui';
 import { useState, useCallback } from 'react';
 
-console.log('Styles', styles)
-
 export default function Login() {
 
   const [authStep, setAuthStep] = useState(0);
