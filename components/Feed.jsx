@@ -1,15 +1,17 @@
-import Link from 'next/link'
-import FileCard from './FileCard'
-import { Button } from './ui'
+import {useState} from 'react';
+import Link from 'next/link';
+import FileCard from './FileCard';
+import { Button } from './ui';
 
 export default function Feed({ currentUser, user }) {
+    const [canDelete, setCanDelete] = useState(false)
     return (
         <>
             <h2 className='text-center'>{user.username}'s Files</h2>
             {user.files.length >= 1 ? (
                 <div className='flex flex-wrap space-x-3 mx-5 justify-evenly'>
                     {user.files.map((file) => (
-                        <FileCard user={user} key={file.filename} file={file} />
+                        <FileCard currentUser={currentUser} user={user} key={file.filename} file={file} />
                     ))}
                 </div>
             ) : (

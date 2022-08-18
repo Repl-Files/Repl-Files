@@ -18,7 +18,7 @@ export default function UserPage({ currentUser, pageUser }) {
             <div className='flex flex-col items-center justify-center'>
                 <div className='flex items-center justify-center space-x-7'>
                     <Avatar source={pageUser.image} large />
-                    <h1>@{pageUser.username} | {pageUser.displayName}</h1>
+                    {pageUser.username === 'Bookie0' ? <h1>@{pageUser.username}</h1> : <h1>{pageUser.displayName} | @{pageUser.username}</h1>}
                 </div>
                     <Feed currentUser={currentUser} user={pageUser} />
             </div>

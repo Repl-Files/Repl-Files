@@ -22,7 +22,7 @@ app.post(async (req, res) => {
   if(userData.data){
     let { user } = userData.data;
     if(user.isBannedFromBoards) {
-      res.json({ success: false, message: "It seems as though you've been banned from replit, so unfortunately you can't have access to ReplFiles.  If you would like to appeal, please do so at https://contact.moderation.repl.co" });
+      res.json({ success: false, message: "It seems as though you've been banned from replit, so unfortunately you can't have access to ReplFiles. If you would like to appeal, please do so at https://contact.moderation.repl.co" });
     }
     else {
       let testForUser = await User.findOne({ userId: id });
@@ -39,6 +39,7 @@ app.post(async (req, res) => {
           cool: false,
           userRoles: parsedRoles,
           spaceUsed: 0,
+          moderator: false,
           count: 0
         })
         console.log("NEW USER", newUser)

@@ -7,6 +7,7 @@ const UserSchema = new mongoose.Schema({
     image: { type: String, index: true },
     banned: { type: Boolean, index: true },
     spaceUsed: { type: Number, index: true },
+    moderator: { type: Boolean, index: true },
     count: { type: Number, index: true },
 
     color: { type: String, index: true, default: "#ffffff" },
@@ -31,7 +32,10 @@ mongoose.connect(process.env.MONGO_URI, {
 
 mongoose.connection.useDb('Users');
 
-export const User = mongoose.models.User || mongoose.model("User", UserSchema);
+// delete mongoose.connection.models['User'];
+// delete mongoose.connection.models['Role'];
+
+export const User = mongoose.models.User || mongoose.model("User", UserSchema); // mongoose.models.User || 
 
 
-export const Role = mongoose.models.Role || mongoose.model("Role", RoleSchema)
+export const Role = mongoose.models.Role || mongoose.model("Role", RoleSchema) // mongoose.models.Role || 
