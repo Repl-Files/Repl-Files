@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 import Header from '../../components/Header'
 import Head from '../../components/Head'
 import Avatar from '../../components/Avatar'
-import FileCard from '../../components/FileCard'
 import { useRouter } from 'next/router'
 import { User, Role } from '../../scripts/mongo'
 import Gql from '../../scripts/gql'
@@ -62,14 +61,17 @@ export default function UserPage({ currentUser, pageUser }) {
 
     return (
         <>
-            <Head titleContent={file?.name} description={`${pageUser?.username}'s Repl Files profile`} />
+            <Head avatar={pageUser?.image} titleContent={file?.name} description={`${pageUser?.username}'s Repl Files profile`} />
             <Header currentUser={currentUser} />
             <div className='flex flex-col items-center justify-center space-y-5'>
                 <div className='flex items-center justify-center space-x-7'>
+                    <div className='sm:inline hidden'>
                     <Avatar source='/docs.png' large />
-                    <h1>{file?.name}</h1>
+                    </div>
+                    <h1 className='truncate break-words'>{file?.name}</h1>
                 </div>
-                    <h2>Uploaded by <a href={`/${file?.username}`} target='_blank'>@{file?.username}</a></h2>
+                    <h2 className='hidden sm:inline truncate break-words'>Uploaded by <a href={`/${file?.username}`} target='_blank'>@{file?.username}</a></h2>
+                <h2 className='sm:hidden inline truncate break-words'><a href={`/${file?.username}`} target='_blank'>@{file?.username}</a></h2>
                 <div className='flex justify-between flex-col border rounded-lg m-2 mt-4 bg-[#1C2333] border-[#4E5569] hover:border-[#71788A] w-72 h-50 relative text-center '>
 
                     <div>
@@ -89,7 +91,14 @@ export default function UserPage({ currentUser, pageUser }) {
                         </a>
                     </Link>
                 </div>
+                <a href={file?.file} download>
                 <Button classes='flex text-xl font-semibold justify-center items-center'>Download <DownloadIcon  className='h-8 w-8 ml-3'/></Button>
+                </a>
+            <div className='bg-[#D33C2F]/75 p-5 mt-4 rounded-md'>
+                <p className='mx-3 max-w-[50vw] font-semibold'>
+                    WARNING: ReplFiles is not responsible for the security of files. Do not download files that you don't trust. If you believe that a file is malware or is dangerous, report it <a href='/feedback' target='_blank' rel='noreferrer'>here</a> and a moderator will look at the report as soon as possible.
+                </p>
+            </div>
             </div>
         </>
     )

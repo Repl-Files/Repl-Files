@@ -4,7 +4,6 @@ import FileCard from './FileCard';
 import { Button } from './ui';
 
 export default function Feed({ currentUser, user }) {
-    const [canDelete, setCanDelete] = useState(false)
     return (
         <>
             <h2 className='text-center'>{user.username}'s Files</h2>

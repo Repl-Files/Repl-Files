@@ -13,7 +13,7 @@ export default function UserPage({ currentUser, pageUser }) {
 
     return (
         <>
-            <Head titleContent={pageUser.username} description={`${pageUser}'s Repl Files profile`} />
+            <Head avatar={pageUser.image} titleContent={pageUser.username} description={`${pageUser}'s Repl Files profile`} />
                 <Header currentUser={currentUser} />
             <div className='flex flex-col items-center justify-center'>
                 <div className='flex items-center justify-center space-x-7'>

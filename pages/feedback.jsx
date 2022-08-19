@@ -38,6 +38,7 @@ export default function Feedback({ currentUser }) {
                                     <option value='bug'>Bug</option>
                                     <option value='feedback'>Feedback</option>
                                     <option value='suggestion'>Suggestion</option>
+                                    <option value='report'>Report</option>
                                     <option value='other'>Other </option>
                                 </select>
                             </div>
