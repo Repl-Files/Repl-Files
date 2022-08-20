@@ -18,9 +18,9 @@ export default function Home() {
                         </div>
                     </div>
 
-                    {/* <div className={styles.illustration1}>
-          <img src="/hmms.png" alt="chit chat go bonk"/>
-        </div> */}
+                    <div className={styles.illustration1}>
+          <img src="/logobig.png" alt="Big logo!"/>
+        </div>
                 </div>
             </div>
 
