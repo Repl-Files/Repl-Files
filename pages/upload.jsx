@@ -18,11 +18,12 @@ export default function Upload({ currentUser }) {
             <form
                 encType="multipart/form-data"
                 method="post"
+                autoComplete="off"
                 action='https://replfiles.api.dillonb07.studio/upload'
                 className="sticky top-16 md:top-20 z-50 shadow-sm border rounded-md border-[#4F5567] p-2 bg-[#2B3245] hover:border-[#71788A] transition duration-300"
             >
                 <div className="flex items-center space-x-3">
-                    <Avatar />
+                   
                     <input
                         required
                         className="p-2 pl-5 outline-none flex-1 rounded-md bg-[#0F1524]"
@@ -77,11 +78,9 @@ export default function Upload({ currentUser }) {
                         </div></div>
                         )*/} 
 
-                        <div className="flex items-center px-2 mb-2">
-                                <p className="min-w-[90px]">Username:</p>
-                        <input readOnly type='text' className='rounded-md m-2 flex-1 bg-[#0F1524] p-2 outline-none cursor-not-allowed' name='username'  value={currentUser.username} />
-                            <input readOnly hidden type='text' className='none ' name='userid'  value={currentUser.userId} />
-                            </div>
+
+
+                        <input hidden type='text' className='rounded-md m-2 flex-1 bg-[#0F1524] p-2 outline-none cursor-not-allowed' name='username'  value={currentUser.username} />
                         
                             <Button
                                 btnType="submit"

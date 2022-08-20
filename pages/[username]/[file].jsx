@@ -37,7 +37,6 @@ export default function UserPage({ currentUser, pageUser }) {
 
     const router = useRouter()
     const [file, setFile] = useState()
-    console.log(pageUser)
 
     useEffect(() => {
         async function getFiles() {
@@ -47,7 +46,6 @@ export default function UserPage({ currentUser, pageUser }) {
 
                 // Set the new component state using the data
                 setFile(data);
-                console.log(data)
 
                 if (data?.type === 'error' && data?.msg === 'File not found') {
                     router.push('/dashboard?type=error&msg=File%20not%20found')
@@ -57,7 +55,7 @@ export default function UserPage({ currentUser, pageUser }) {
             }
         }
         getFiles();
-    }, []);
+    }, [router]);
 
     return (
         <>
@@ -70,8 +68,8 @@ export default function UserPage({ currentUser, pageUser }) {
                     </div>
                     <h1 className='truncate break-words'>{file?.name}</h1>
                 </div>
-                    <h2 className='hidden sm:inline truncate break-words'>Uploaded by <a href={`/${file?.username}`} target='_blank'>@{file?.username}</a></h2>
-                <h2 className='sm:hidden inline truncate break-words'><a href={`/${file?.username}`} target='_blank'>@{file?.username}</a></h2>
+                    <h2 className='hidden sm:inline truncate break-words'>Uploaded by <a rel='noreferrer' href={`/${file?.username}`} target='_blank'>@{file?.username}</a></h2>
+                <h2 className='sm:hidden inline truncate break-words'><a href={`/${file?.username}`} rel='noreferrer' target='_blank'>@{file?.username}</a></h2>
                 <div className='flex justify-between flex-col border rounded-lg m-2 mt-4 bg-[#1C2333] border-[#4E5569] hover:border-[#71788A] w-72 h-50 relative text-center '>
 
                     <div>
@@ -86,19 +84,20 @@ export default function UserPage({ currentUser, pageUser }) {
                             <div className='content-center justify-evenly cursor-pointer flex mx-4 rounded-md bg-[#0F1524] p-3 mb-4'>
                                 <Avatar source={pageUser?.image} />
                                 <h5 className='break-words truncate '>@{file?.username}</h5>
-                                {(currentUser?.userId == pageUser?.userId || currentUser?.moderator) && <XCircleIcon onClick={handleDelete} className='text-red-500 h-8 w-8' />}
+                                {/* (currentUser?.userId == pageUser?.userId || currentUser?.moderator) && <button onClick={handleDelete}><XCircleIcon className='text-red-500 h-8 w-8' /></button> */}
                             </div>
                         </a>
                     </Link>
                 </div>
-                <a href={file?.file} download>
+                <a href={file?.file} download={file?.filename}>
                 <Button classes='flex text-xl font-semibold justify-center items-center'>Download <DownloadIcon  className='h-8 w-8 ml-3'/></Button>
                 </a>
-            <div className='bg-[#D33C2F]/75 p-5 mt-4 rounded-md'>
+           {currentUser?.username !== file?.username &&( <div className='bg-[#D33C2F]/75 p-5 mt-4 rounded-md'>
+                
                 <p className='mx-3 max-w-[50vw] font-semibold'>
-                    WARNING: ReplFiles is not responsible for the security of files. Do not download files that you don't trust. If you believe that a file is malware or is dangerous, report it <a href='/feedback' target='_blank' rel='noreferrer'>here</a> and a moderator will look at the report as soon as possible.
+                    WARNING: ReplFiles is not responsible for the security of files. Do not download files that you don&apos;t trust. If you believe that a file is malware or is dangerous, report it <a href='/feedback' target='_blank' rel='noreferrer'>here</a> and a moderator will look at the report as soon as possible.
                 </p>
-            </div>
+            </div>)}
             </div>
         </>
     )
@@ -111,7 +110,6 @@ export async function getServerSideProps({ params, req }) {
 
     let userInDb = await User.findOne({ userId: id }).populate("userRoles");
     let pageUserInDb = await User.findOne({ username: params.username }).populate('userRoles');
-    console.log(pageUserInDb)
 
     if (userInDb && !userInDb.banned) {
         let userData = await gql.raw({

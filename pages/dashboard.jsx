@@ -1,17 +1,16 @@
 import Header from '../components/Header'
 import Head from '../components/Head'
 import Feed from '../components/Feed'
-import Swal from 'sweetalert2'
-import {useRouter} from 'next/router'
 
 export default function Dashboard({ currentUser }) {
     
-    console.log(currentUser)
     return (
         <div>
             <Head titleContent='Dashboard' />
             <Header currentUser={currentUser} />
+            <div className='flex flex-col items-center justify-center'>
             <Feed currentUser={currentUser} user={currentUser} />
+            </div>
         </div>
     )
 }

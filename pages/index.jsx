@@ -1,18 +1,17 @@
 import { Button, FlexRow, BoxContainer, Link } from '../components/ui';
 import Head from '../components/Head'
 import styles from '../styles/pages/index.module.scss';
-import {motion} from 'framer-motion'
 
 export default function Home() {
     return (
         <div>
-            <Head title='Home' description='Repl Files - Eassy file hosting. Free. Forever.' avatar='./favicon.ico' />
+            <Head titleContent='Home' descriptionContent='Repl Files - Eassy file hosting. Free. Forever.' avatar='./favicon.ico' />
             <div className={styles.section}>
                 <div className={styles.mainHeader}>
                     <div className={styles.headerFlex}>
                         <div>
                             <h1>ReplFiles. Hosting made eassy.</h1>
-                            <p style={{ marginBottom: 20 }}>Eassy hosting. Free hosting. What's not to love?</p>
+                            <p style={{ marginBottom: 20 }}>Eassy hosting. Free hosting. What&apos;s not to love?</p>
                             <Link href="/login">
                                 <Button>Get Started</Button>
                             </Link>
@@ -26,7 +25,7 @@ export default function Home() {
             </div>
 
             <div className={styles.section} id='credits' >
-                <div className={styles.centerSec} className='slide-left'>
+                <div className={`${styles.centerSec} slide-left`}>
                     <h2 style={{ textAlign: 'center' }}>Credits</h2>
 
                     <div className={styles.tContainer}>
@@ -65,7 +64,7 @@ export default function Home() {
 
             <div className={styles.section}>
                 <h2 style={{ textAlign: 'center' }}>Err...</h2>
-                <p style={{ textAlign: 'center' }}>I forgot what this section was for! It'll stay empty forever now.</p>
+                <p style={{ textAlign: 'center' }}>I forgot what this section was for! It&apos;ll stay empty forever now.</p>
             </div>
 
             <div className={styles.section}>

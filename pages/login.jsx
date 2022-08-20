@@ -55,7 +55,7 @@ export default function Login() {
             4. 24/7 hosting is NOT guaranteed<br />
             5. Do not store sensitive files<br />
             6. Do not spam or attempt to bot this website - in doing so, you will be permanently banned<br />
-            7. Don't bend the rules<br />
+            7. Don&apos;t bend the rules<br />
             8. Listen to moderators. Their decisions are final</p>
           <FlexRow>
             <FlexGrow/>
@@ -65,7 +65,7 @@ export default function Login() {
 
         {authStep === 2 && <FlexCol>
           <h3>Enjoy!</h3>
-          <p>Your account has been setup and you can begin using Repl Files. Remember to adhere to the rules or your account may be banned.<br/>Welcome and let's start hosting!</p>
+          <p>Your account has been setup and you can begin using Repl Files. Remember to adhere to the rules or your account may be banned.<br/>Welcome and let&apos;s start hosting!</p>
           <FlexGrow/>
           <FlexRow>
             <FlexGrow/>

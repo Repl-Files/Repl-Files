@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-function Avatar({ source='/logo.png', large=false, priority=false, background='white' }) {
+function Avatar({ source='/logo.png', unRounded=false, large=false, priority=false, background='white' }) {
   return (
     <div
-      className={`relative overflow-hidden h-10 w-10 rounded-full border-gray-300 ${background === 'white' ? 'bg-white' : `bg-[#${background}]`} ${
+      className={`relative overflow-hidden h-10 w-10 border-gray-300 ${background === 'white' ? 'bg-white' : `bg-[#${background}]`} ${
         large && "h-20 w-20"
-      }`}
+      } ${!unRounded && 'rounded-full'}`}
     >
       <Image
         priority={priority}

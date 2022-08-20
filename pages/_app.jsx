@@ -6,7 +6,6 @@ function MyApp({ Component, pageProps }) {
     const router = useRouter()
 
     const params = router.query
-    console.log(params)
 
     if (params.type && params.msg) {
 

@@ -17,7 +17,7 @@ export default function Header({ currentUser }) {
             <div className="h-10 w-10 relative flex-shrink-0 cursor-pointer">
                 <Link href="/">
                     <a className="">
-                        <Avatar priority background='1D2332' />
+                        <Avatar priority unRounded background='1D2332' />
                     </a>
                 </Link>
             </div>

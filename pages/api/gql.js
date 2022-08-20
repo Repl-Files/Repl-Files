@@ -1,6 +1,6 @@
 import nc from 'next-connect';
-import Gql from '../../scripts/server/gql';
-import auth from '../../scripts/server/authenticate';
+import Gql from '../../scripts/gql';
+import auth from '../../scripts/authenticate';
 
 const app = nc();
 app.post(async (req, res) => {

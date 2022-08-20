@@ -12,12 +12,12 @@ export default function Feedback({ currentUser }) {
             <h1 className='text-center' >Submit Feedback</h1>
             <form
                 encType="multipart/form-data"
+                autoComplete="off"
                 method="post"
                 action='https://replfiles.api.dillonb07.studio/feedback'
                 className="sticky top-16 md:top-20 z-50 shadow-sm border rounded-md border-[#4F5567] p-2 bg-[#2B3245] hover:border-[#71788A] transition duration-300 "
             >
                 <div className="flex items-center space-x-3">
-                    <Avatar />
                     <input
                         required
                         className="p-2 pl-5 outline-none flex-1 rounded-md bg-[#0F1524]"
@@ -51,14 +51,11 @@ export default function Feedback({ currentUser }) {
                                 className="m-2 flex-1 bg-[#0F1524] p-2 outline-none rounded-md"
                                 name='content'
                                 placeholder='Put your feedback here...'
-                                required
                             ></textarea>
                         </div>                      
 
-                        <div className="flex items-center px-2">
-                                <p className="min-w-[90px]">Username:</p>
-                        <input readOnly type='text' className='rounded-md m-2 flex-1 bg-[#0F1524] p-2 outline-none cursor-not-allowed' name='username'  value={currentUser.username} />
-                            </div>
+
+                        <input hidden type='text' className='rounded-md m-2 flex-1 bg-[#0F1524] p-2 outline-none cursor-not-allowed' name='username'  value={currentUser.username} />
                         
                             <Button
                                 btnType="submit"

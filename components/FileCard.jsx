@@ -49,7 +49,7 @@ export default function FileCard({ file, user, currentUser }) {
                             </div>
                         </a>
                     </Link>
-                    {(currentUser.userId == user.userId || currentUser.moderator) && <XCircleIcon onClick={handleDelete} className='text-red-500 h-8 w-8 cursor-pointer' />}
+                    {/*(currentUser.userId == user.userId || currentUser.moderator) && <button onClick={handleDelete}><XCircleIcon className='text-red-500 h-8 w-8 cursor-pointer' /></button>*/}
                 </div>
             </div>
         </Link>
