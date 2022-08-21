@@ -16,7 +16,6 @@
     "express": "^4.18.1",
     "express-rate-limit": "^6.4.0",
     "framer-motion": "^6.5.1",
-    "highlight.js": "^11.4.0",
     "isomorphic-dompurify": "^0.18.0",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.4",
@@ -32,18 +31,14 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-feather": "^2.0.10",
-    "react-hook-form": "^7.34.0",
+    "react-hook-form": "^7.34.2",
     "react-twemoji": "^0.5.0",
     "request": "^2.88.2",
     "request-ip": "^3.3.0",
     "sanitize-html": "^2.7.1",
     "sass": "^1.53.0",
     "sharp": "^0.30.7",
-    "socket.io": "^4.5.1",
-    "socket.io-client": "^4.5.1",
-    "socketio-jwt": "^4.6.2",
-    "sweetalert2": "^11.4.24",
-    "sweetalert2-react-content": "^5.0.2"
+    "sweetalert2": "^11.4.24"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",
