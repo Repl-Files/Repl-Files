@@ -19,7 +19,7 @@ export default function Upload({ currentUser }) {
                 encType="multipart/form-data"
                 method="post"
                 autoComplete="off"
-                action='https://replfiles.api.dillonb07.studio/upload'
+                action='https://replapps.api.dillonb07.studio/files/upload'
                 className="sticky top-16 md:top-20 z-50 shadow-sm border rounded-md border-[#4F5567] p-2 bg-[#2B3245] hover:border-[#71788A] transition duration-300"
             >
                 <div className="flex items-center space-x-3">
@@ -30,6 +30,8 @@ export default function Upload({ currentUser }) {
                         type="text"
                         placeholder='File Nickname'
                         name='name'
+                        title='File name with no special characters'
+                        pattern='[A-Z a-z0-9]'
                     />
 
                     {/*<PhotographIcon

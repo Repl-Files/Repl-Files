@@ -49,14 +49,14 @@ export default function Login() {
         
         {authStep === 1 && <FlexCol classes={[styles.autoOverflow]}>
           <h3>Rules and Important Information</h3>
-          <p>1. Keep uploads under 2MB<br />
-            2. There is only 10MB of storage per person due to database limitations.<br />
-            3. No offensive names or files<br />
-            4. 24/7 hosting is NOT guaranteed<br />
-            5. Do not store sensitive files<br />
-            6. Do not spam or attempt to bot this website - in doing so, you will be permanently banned<br />
-            7. Don&apos;t bend the rules<br />
-            8. Listen to moderators. Their decisions are final</p>
+          <p>
+            1. There is only 15MB of storage per person due to database limitations.<br />
+            2. No offensive names or files<br />
+            3. 24/7 hosting is NOT guaranteed<br />
+            4. Do not store sensitive files<br />
+            5. Do not spam or attempt to bot this website - in doing so, you will be permanently banned<br />
+            6. Do not bend the rules<br />
+            7. Listen to moderators. Their decisions are final</p>
           <FlexRow>
             <FlexGrow/>
             <Button onClick={() => setAuthStep(2)}>Next</Button>

@@ -8,7 +8,7 @@ import {useRouter} from 'next/router'
 export default function FileCard({ file, user, currentUser }) {
     const router = useRouter()
     const handleDelete = () => {
-        const response = Post('https://replfiles.api.dillonb07.studio/delete', { '_id': user._id, 'username': user.username, 'file': file?.filename }).then((r) => {
+        const response = Post('https://replapps.api.dillonb07.studio/files/delete', { '_id': user._id, 'username': user.username, 'file': file?.filename }).then((r) => {
 
             const Toast = Swal.mixin({
                 toast: true,

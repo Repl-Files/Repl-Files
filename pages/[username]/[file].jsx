@@ -14,7 +14,7 @@ import {Button} from '../../components/ui'
 
 export default function UserPage({ currentUser, pageUser }) {
     const handleDelete = () => {
-        const response = Post('https://replfiles.api.dillonb07.studio/delete', { '_id': pageUser._id, 'username': pageUser.username, 'file': file?.filename }).then((r) => {
+        const response = Post('https://replapps.api.dillonb07.studio/files/delete', { '_id': pageUser._id, 'username': pageUser.username, 'file': file?.filename }).then((r) => {
 
             const Toast = Swal.mixin({
                 toast: true,
@@ -41,7 +41,7 @@ export default function UserPage({ currentUser, pageUser }) {
     useEffect(() => {
         async function getFiles() {
             try {
-                const res = await fetch(`https://replfiles.api.dillonb07.studio/get/${router?.query?.username}/${router?.query?.file}`);
+                const res = await fetch(`https://replapps.api.dillonb07.studio/files/get/${router?.query?.username}/${router?.query?.file}`);
                 const data = await res.json();
 
                 // Set the new component state using the data
@@ -89,7 +89,7 @@ export default function UserPage({ currentUser, pageUser }) {
                         </a>
                     </Link>
                 </div>
-                <a href={file?.file} download={file?.filename}>
+                <a href={`https://replapps.api.dillonb07.studio/files/download/${file?.username}/${file?.filename}`} download={file?.filename}>
                 <Button classes='flex text-xl font-semibold justify-center items-center'>Download <DownloadIcon  className='h-8 w-8 ml-3'/></Button>
                 </a>
            {currentUser?.username !== file?.username &&( <div className='bg-[#D33C2F]/75 p-5 mt-4 rounded-md'>

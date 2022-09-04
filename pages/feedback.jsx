@@ -14,7 +14,7 @@ export default function Feedback({ currentUser }) {
                 encType="multipart/form-data"
                 autoComplete="off"
                 method="post"
-                action='https://replfiles.api.dillonb07.studio/feedback'
+                action='https://replapps.api.dillonb07.studio/files/feedback'
                 className="sticky top-16 md:top-20 z-50 shadow-sm border rounded-md border-[#4F5567] p-2 bg-[#2B3245] hover:border-[#71788A] transition duration-300 "
             >
                 <div className="flex items-center space-x-3">
