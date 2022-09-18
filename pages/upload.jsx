@@ -31,7 +31,7 @@ export default function Upload({ currentUser }) {
                         placeholder='File Nickname'
                         name='name'
                         title='File name with no special characters'
-                        pattern='[A-Z a-z0-9]'
+                        pattern='[A-Z a-z0-9]+'
                     />
 
                     {/*<PhotographIcon
